@@ -1,7 +1,4 @@
-import { Routes } from '@angular/router';
-import { AuthComponent } from './Layouts/auth/auth.component';
-import { LoginComponent } from './Views/Auth/login/login.component';
-import { RegisterComponent } from './Views/Auth/register/register.component';
+
 
 export const routes: Routes = [ 
   {
@@ -16,8 +13,18 @@ export const routes: Routes = [
         component: LoginComponent,
       },
       {
-        path: 'register',
+        path: 'registrar',
         component: RegisterComponent
+      }
+    ]
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    children: [
+      {
+        path: 'index',
+        component: IndexComponent,
       }
     ]
   },
@@ -26,3 +33,10 @@ export const routes: Routes = [
     redirectTo: 'login'
   }
 ];
+
+import { Routes } from '@angular/router';
+import { AuthComponent } from './Layouts/auth/auth.component';
+import { LoginComponent } from './Views/Auth/login/login.component';
+import { RegisterComponent } from './Views/Auth/register/register.component';
+import { DashboardComponent } from './Layouts/dashboard/dashboard.component';
+import { IndexComponent } from './Views/User/index/index.component';
